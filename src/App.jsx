@@ -1,9 +1,11 @@
+// App.jsx
 import React, { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import Navbar from "./components/navbar";
+import Navbar from "./components/sections/Navbar.jsx";
 import { Provider } from "react-redux";
-import { store, autStore } from "../Redux/Store";
+import { store, authStore } from "../redux/store.js";
 import { AppProvider } from "./context/AppContext";
+import "./index.css";
 
 function App() {
   const location = useLocation();
@@ -11,13 +13,18 @@ function App() {
   useEffect(() => {
     window.scroll(0, 1);
   }, [location.pathname]);
-
+  console.log(location.pathname);
+  function Logged() {
+    if (location.pathname !== "/login") 
+      return <Navbar />;
+    else 
+      return <></>;
+  }
   return (
     <Provider store={store}>
-      <AppProvider store={autStore}>
+      <AppProvider store={authStore}>
         <div className="content">
-          {/* Render Navbar only if the pathname is not "/login" */}
-          {location.pathname !== "/login" && <Navbar />}
+          <Logged />
           <main className="content">
             <Outlet />
           </main>
