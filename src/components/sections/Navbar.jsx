@@ -1,7 +1,7 @@
 // Navbar.jsx
 import React, { useState } from "react";
-import avatar from "../../assets/avatar.svg";
-import ITC from "../../../public/images/ITC.svg";
+import avatar from "../../assets/images/avatar.svg";
+import logo from "../../assets/images/logo.svg"
 import DangerButton from "../ui-elements/buttons/DangerButton";
 const Navbar = () => {
   const container = {
@@ -42,8 +42,8 @@ const Navbar = () => {
   return (
     <div style={container}>
       <img
-        src={ITC}
-        alt="ITC_logo"
+        src={logo}
+        alt="logo_logo"
         style={{
           width: "3.66938rem",
           height: "3rem",
