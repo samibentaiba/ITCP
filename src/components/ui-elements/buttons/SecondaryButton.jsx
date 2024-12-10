@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useNavigate, useLocation } from "react-router-dom";
-import "./PrimaryButton.css";
+import "./SecondaryButton.css";
 import start from "../../../assets/icons/start.svg";
 import ReactLoading from "react-loading";
-import Checked from "../../../assets/icons/checked.svg"
-const PrimaryButton = ({
+import SearchChecked from "../../../assets/icons/SearchChecked.svg"
+
+const SecondaryButton = ({
   txt,
   isfull = true,
   to = "",
   isicon = false,
-  Checkedicon = false,
   isexternal = false,
   onClick,
   redirectDelay = 1000,
@@ -53,11 +53,11 @@ const PrimaryButton = ({
   }, [redirecting, navigate, path, fullPath, isexternal, redirectDelay]);
 
   const buttonClasses = [
-    "button",
-    disabled && "button--disabled",
-    isHovered && !disabled && "button--hovered",
-    isPressed && !disabled && "button--pressed",
-    isClicked && "button--clicked",
+    "buttonSecondary",
+    disabled && "buttonSecondary--disabled",
+    isHovered && !disabled && "buttonSecondary--hovered",
+    isPressed && !disabled && "buttonSecondary--pressed",
+    isClicked && "buttonSecondary--clicked",
   ]
     .filter(Boolean)
     .join(" ");
@@ -83,7 +83,7 @@ const PrimaryButton = ({
         {isClicked ? (
           <ReactLoading
             type="spin"
-            color="#121212"
+            color="#ffff"
             height="24px"
             width="24px"
           />
@@ -101,7 +101,7 @@ const PrimaryButton = ({
           >
             {txt}
             {isicon ? (
-                <img src={ Checkedicon ? Checked : start}/>
+                <img src={SearchChecked}/>
             ) : (
               ""
             )}
@@ -118,17 +118,16 @@ const PrimaryButton = ({
   );
 };
 
-PrimaryButton.propTypes = {
+SecondaryButton.propTypes = {
   txt: PropTypes.string.isRequired,
   isfull: PropTypes.bool,
   to: PropTypes.string,
   isicon: PropTypes.bool,
   icon: PropTypes.node,
-  Checkedicon: PropTypes.node,
   isexternal: PropTypes.bool,
   onClick: PropTypes.func,
   redirectDelay: PropTypes.number,
   disabled: PropTypes.bool,
 };
 
-export default PrimaryButton;
+export default SecondaryButton;

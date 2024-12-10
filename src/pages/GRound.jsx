@@ -1,13 +1,24 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setEmail, setPassword, loginUser } from "../../redux/login/action";
-import { useNavigate } from "react-router-dom";
-import useSignIn from "react-auth-kit/hooks/useSignIn";
-import InputField from "../components/ui-elements/input/InputField";
-import PrimaryButton from "../components/ui-elements/buttons/PrimaryButton.jsx";
-import Landing from "../components/codeEditor/elemnts/Landing.jsx";
-const Login = () => {
-  return <Landing />;
+import React from "react";
+import Landing from "../components/sections/codeEditor/elemnts/Landing.jsx";
+import GameDay from "../components/sections/GameDay.jsx";
+import Push from "../components/sections/Push.jsx"
+const GRound = () => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        width: "1440px",
+        padding: "16px 64px",
+        flexDirection:"column",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
+    >
+      <GameDay />
+      <Landing />
+      <Push />
+    </div>
+  );
 };
 
-export default Login;
+export default GRound;
