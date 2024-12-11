@@ -1,17 +1,18 @@
 import React from "react";
 import "./codeEditor/elemnts/ControlButtons.css"
 import side from "../../assets/icons/side.svg"
-const ControlButtons = () => {
+const Button = ({ onButtonClick }) => {
   return (
     <div className="button-container">
-      <button  className="control-button">
+      <button className="control-button" onClick={onButtonClick}>
         <img src={side} alt="side" />
       </button>
     </div>
   );
 };
 
-function GameDay() {
+function GameDay({ onButtonClick }) {
+
   return (
     <div
       style={{
@@ -31,7 +32,7 @@ function GameDay() {
             flex: "1 0 0",
         }}
       >
-<ControlButtons />
+<Button onButtonClick={onButtonClick} />
         <p
           style={{
             color: "var(--White, #FFF)",
